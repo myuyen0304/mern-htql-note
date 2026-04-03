@@ -25,7 +25,7 @@ const UsersPage = () => {
       const endpoint = isAuthenticated ? "/private/users" : "/public/users";
       const response = await API.get(endpoint);
       setUsers(response.data);
-    } catch (error) {
+    } catch (_error) {
       toast.error("Không thể tải danh sách người dùng");
     } finally {
       setLoading(false);
@@ -44,7 +44,7 @@ const UsersPage = () => {
         : `/public/users/${userId}`;
       const response = await API.get(endpoint);
       setDetailModal({ open: true, user: response.data });
-    } catch (error) {
+    } catch (_error) {
       toast.error("Không thể tải thông tin chi tiết");
     }
   };
@@ -92,7 +92,7 @@ const UsersPage = () => {
       toast.success(response.data.message);
       setConfirmModal({ open: false, user: null });
       fetchUsers();
-    } catch (error) {
+    } catch (_error) {
       toast.error("Đổi trạng thái thất bại");
     } finally {
       setActionLoading(false);

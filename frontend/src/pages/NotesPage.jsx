@@ -25,7 +25,7 @@ const NotesPage = () => {
       const endpoint = isAuthenticated ? "/private/notes" : "/public/notes";
       const response = await API.get(endpoint);
       setNotes(response.data);
-    } catch (error) {
+    } catch (_error) {
       toast.error("Không thể tải danh sách ghi chú");
     } finally {
       setLoading(false);
@@ -44,7 +44,7 @@ const NotesPage = () => {
         : `/public/notes/${noteId}`;
       const response = await API.get(endpoint);
       setDetailModal({ open: true, note: response.data });
-    } catch (error) {
+    } catch (_error) {
       toast.error("Không thể tải thông tin chi tiết");
     }
   };
@@ -91,7 +91,7 @@ const NotesPage = () => {
       toast.success(response.data.message);
       setConfirmModal({ open: false, note: null });
       fetchNotes();
-    } catch (error) {
+    } catch (_error) {
       toast.error("Đổi trạng thái thất bại");
     } finally {
       setActionLoading(false);
