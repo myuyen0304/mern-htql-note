@@ -32,7 +32,11 @@ export default [
       "react/prop-types": "off",
       "no-unused-vars": [
         "error",
-        { varsIgnorePattern: "^_", argsIgnorePattern: "^_" },
+        {
+          varsIgnorePattern: "^_",
+          argsIgnorePattern: "^_",
+          caughtErrorsIgnorePattern: "^_",
+        },
       ],
       "react-refresh/only-export-components": [
         "warn",
