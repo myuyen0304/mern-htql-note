@@ -11,6 +11,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    environment: Production
     # Chỉ deploy khi CI pass
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
